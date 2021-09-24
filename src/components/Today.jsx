@@ -1,16 +1,39 @@
 import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
-import { formatDate } from "@/helpers";
+import { API_URL, formatDate } from "@/helpers";
 
-function Today({ city, isCelsius }) {
+function Today({ city, isCelsius, setWoeid }) {
   const today = city.days[0];
+
+  const handleLocation = () => {
+    const success = (position) => {
+      const { latitude, longitude } = position.coords;
+
+      fetch(`${API_URL}/location/search/?lattlong=${latitude},${longitude}`)
+        .then((response) => response.json())
+        .then((cities) => {
+          let nearest;
+
+          cities.forEach((city) => {
+            if (!nearest || city.distance < nearest.distance) {
+              nearest = city;
+            }
+          });
+
+          setWoeid(nearest.woeid);
+        })
+        .catch((error) => console.error(error));
+    };
+
+    navigator.geolocation.getCurrentPosition(success);
+  };
 
   return (
     <main>
       <div className="container">
         <div className="buttons">
           <button>Search for places</button>
-          <button className="location">
+          <button className="location" onClick={handleLocation}>
             <span className="material-icons">my_location</span>
           </button>
         </div>

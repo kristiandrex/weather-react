@@ -28,3 +28,7 @@ export function formatDate(time) {
     month: "short"
   }).format(date);
 }
+
+// Using cors-anywhere to avoid CORS errors.
+// https://github.com/kristiandrex/cors-anywhere
+export const API_URL = "https://kristiandrex-cors-anywhere.herokuapp.com/https://www.metaweather.com/api";
