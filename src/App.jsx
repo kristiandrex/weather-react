@@ -37,6 +37,17 @@ function App() {
     <>
       <Today city={city} />
       <Details city={city} />
+      <footer>
+        Created by{" "}
+        <a
+          href="https://github.com/kristiandrex"
+          target="_blank"
+          rel="noreferrer"
+        >
+          @kristiandrex
+        </a>{" "}
+        - devChallenges.io
+      </footer>
     </>
   );
 }

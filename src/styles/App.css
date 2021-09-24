@@ -72,3 +72,14 @@ main .place {
   color: var(--gray-three);
   margin-top: 1.5rem;
 }
+
+footer {
+  text-align: center;
+  color: var(--gray-two);
+  padding: 1.5rem 1rem;
+}
+
+footer a {
+  color: var(--gray-two);
+  font-weight: bold;
+}
