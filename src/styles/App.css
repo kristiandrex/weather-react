@@ -1,0 +1,74 @@
+main {
+  background-color: var(--blue);
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+}
+
+main .container {
+  position: relative;
+}
+
+main .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .buttons button {
+  color: var(--gray);
+  background-color: #6e707a;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: 1rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+main button.location {
+  font-size: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+}
+
+main .weather-icon {
+  display: block;
+  margin: 3rem auto;
+}
+
+main .temperature .value {
+  font-size: 6rem;
+  line-height: 6rem;
+}
+
+main .temperature .unit {
+  font-size: 2rem;
+}
+
+main .weather-state {
+  font-size: 2rem;
+  color: var(--gray-two);
+  margin: 2rem 0;
+}
+
+main .date,
+main .place {
+  color: var(--gray-three);
+  margin-top: 1.5rem;
+}

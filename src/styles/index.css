@@ -1,0 +1,23 @@
+:root {
+  --blue: #1e213a;
+  --dark-blue: #100e1d;
+  --gray: #e7e7eb;
+  --gray-two: #a09fb1;
+  --gray-three: #88869d;
+  --yellow: #ffec65;
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+
+#root {
+  background-color: var(--dark-blue);
+  color: var(--gray);
+}
+
+.material-icons {
+  vertical-align: bottom;
+}
