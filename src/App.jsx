@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import useLocalStorage from "./hooks/useLocalStorage";
 import Loading from "./components/Loading";
+import Search from "./components/Search";
 import Today from "./components/Today";
 import Details from "./components/Details";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { API_URL, formatCity } from "./helpers";
 import "./styles/App.css";
 
 function App() {
   const [woeid, setWoeid] = useLocalStorage("woeid", 565346); // Default city: Helsinki
-  const [city, setCity] = useState(null);
+  const [showSearch, setShowSearch] = useState(false);
   const [status, setStatus] = useState("loading");
+  const [city, setCity] = useState(null);
 
   useEffect(() => {
     fetch(`${API_URL}/location/${woeid}`)
@@ -34,7 +36,12 @@ function App() {
 
   return (
     <>
-      <Today city={city} setWoeid={setWoeid} />
+      <Search
+        show={showSearch}
+        setWoeid={setWoeid}
+        setShowSearch={setShowSearch}
+      />
+      <Today city={city} setWoeid={setWoeid} setShowSearch={setShowSearch} />
       <Details city={city} />
       <footer>
         Created by{" "}

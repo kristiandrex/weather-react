@@ -1,0 +1,95 @@
+.search {
+  background-color: var(--blue);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.search .btn-close {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.search .btn-close button {
+  border: none;
+  background: none;
+  color: var(--gray);
+  padding: 0;
+}
+
+.search .btn-close button span {
+  vertical-align: middle;
+}
+
+.search form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search form .field {
+  border: 1px solid var(--gray);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  color: var(--gray-four);
+}
+
+.search form .field input {
+  border: none;
+  background: none;
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  color: var(--gray);
+}
+
+.search form button {
+  font-size: 1rem;
+  background-color: var(--light-blue);
+  color: var(--gray);
+  font-family: inherit;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+}
+
+.search ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid var(--blue);
+  color: var(--gray);
+}
+
+.search li:hover {
+  border-color: var(--gray-four);
+}
+
+.search li span {
+  color: var(--gray-four);
+  display: none;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.search li:hover span {
+  display: inline-block;
+}

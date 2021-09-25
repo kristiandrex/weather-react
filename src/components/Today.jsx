@@ -2,7 +2,7 @@ import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
 import { API_URL, formatDate } from "@/helpers";
 
-function Today({ city, isCelsius, setWoeid }) {
+function Today({ city, isCelsius, setWoeid, setShowSearch }) {
   const today = city.days[0];
 
   const handleLocation = () => {
@@ -32,7 +32,7 @@ function Today({ city, isCelsius, setWoeid }) {
     <main>
       <div className="container">
         <div className="buttons">
-          <button>Search for places</button>
+          <button onClick={() => setShowSearch(true)}>Search for places</button>
           <button className="location" onClick={handleLocation}>
             <span className="material-icons">my_location</span>
           </button>
