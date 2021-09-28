@@ -83,3 +83,17 @@ footer a {
   color: var(--gray-two);
   font-weight: bold;
 }
+
+@media screen and (min-width: 1100px) {
+  #root {
+    display: grid;
+    grid-template-areas:
+      "menu details"
+      "menu footer";
+    grid-template-columns: 30% 70%;
+  }
+
+  main {
+    grid-area: menu;
+  }
+}

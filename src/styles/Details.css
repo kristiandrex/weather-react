@@ -102,3 +102,17 @@
   background-color: var(--yellow);
   border-radius: 1rem;
 }
+
+@media screen and (min-width: 1100px) {
+  .details .days {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .details .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details .hightlights {
+    padding: 0 3rem;
+  }
+}

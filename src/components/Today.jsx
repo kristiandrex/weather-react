@@ -6,26 +6,30 @@ function Today({ city, isCelsius, setWoeid, setShowSearch }) {
   const today = city.days[0];
 
   const handleLocation = () => {
-    const success = (position) => {
+    const callbackSuccess = async (position) => {
       const { latitude, longitude } = position.coords;
 
-      fetch(`${API_URL}/location/search/?lattlong=${latitude},${longitude}`)
-        .then((response) => response.json())
-        .then((cities) => {
-          let nearest;
+      try {
+        const response = await fetch(
+          `${API_URL}/location/search/?lattlong=${latitude},${longitude}`
+        );
 
-          cities.forEach((city) => {
-            if (!nearest || city.distance < nearest.distance) {
-              nearest = city;
-            }
-          });
+        const cities = await response.json();
+        let nearest = cities[0];
 
-          setWoeid(nearest.woeid);
-        })
-        .catch((error) => console.error(error));
+        cities.forEach((city) => {
+          if (city.distance < nearest.distance) {
+            nearest = city;
+          }
+        });
+
+        setWoeid(nearest.woeid);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
-    navigator.geolocation.getCurrentPosition(success);
+    navigator.geolocation.getCurrentPosition(callbackSuccess);
   };
 
   return (
